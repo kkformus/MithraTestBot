@@ -18,11 +18,7 @@ var connector = new builder.ChatConnector({
 });
 
 
-// Create chat bot
-//var connector = new builder.ChatConnector({
-//   appId: 'be170e86-8b1d-41a5-ada9-2fd9336b6d9e',
-//    appPassword: 'v4ToXZjyCOmVSFeHNxHMPRO'
-//});
+
 
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
