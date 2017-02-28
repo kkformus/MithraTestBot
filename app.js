@@ -13,9 +13,17 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
   
 // Create chat bot
 var connector = new builder.ChatConnector({
-    appId: 'be170e86-8b1d-41a5-ada9-2fd9336b6d9e',
-    appPassword: 'v4ToXZjyCOmVSFeHNxHMPRO'
+    appId: process.env.MICROSOFT_APP_ID,
+    appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
+
+
+// Create chat bot
+//var connector = new builder.ChatConnector({
+//   appId: 'be170e86-8b1d-41a5-ada9-2fd9336b6d9e',
+//    appPassword: 'v4ToXZjyCOmVSFeHNxHMPRO'
+//});
+
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
